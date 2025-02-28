@@ -107,7 +107,7 @@ Redio DB employs a distributed architecture to ensure high availability and real
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/rediodb.git
+git clone https://github.com/TravelXML/rediodb.git
 cd rediodb
 ```
 
