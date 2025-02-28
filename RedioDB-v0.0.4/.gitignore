@@ -1,0 +1,70 @@
+# Compiled artifacts
+/target
+/Cargo.lock
+
+# Distribution packages
+*.dmg
+*.exe
+*.tar.gz
+*.zip
+
+# IDE/editor specific files
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+
+# Rust specific files
+/out
+/build
+/deps
+/examples
+/native
+/target/debug/build
+/target/debug/deps
+/target/debug/examples
+/target/debug/native
+/target/release/build
+/target/release/deps
+/target/release/examples
+/target/release/native
+
+# If you use rustfmt
+.rustfmt.toml
+
+# If you use clippy
+clippy.toml
+
+# If you use coverage
+/.coverage/
+/coverage/
+
+# If you use docs
+/target/doc
+
+# If you use procedural macros (if you have subdirectories for these)
+/proc-macro/target/
+
+# If you have any test artifacts
+/target/debug/tests
+/target/release/tests
+
+# If you have any bench artifacts
+/target/debug/benches
+/target/release/benches
+
+# If you are using cross compilation
+/target/*/*/
+
+# If you are using a dockerfile
+Dockerfile.build
+Dockerfile.dev
+
+# If you have any environment files
+.env

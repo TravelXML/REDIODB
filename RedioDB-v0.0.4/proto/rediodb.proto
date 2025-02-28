@@ -1,0 +1,170 @@
+syntax = "proto3";
+
+package rediodb;
+
+service Rediodb {
+  // Basic Key-Value Operations
+  rpc Execute(QueryRequest) returns (QueryResponse);
+  rpc Set(SetRequest) returns (ResponseMessage);
+  rpc Get(KeyRequest) returns (ValueResponse);
+  rpc Expire(ExpireRequest) returns (ResponseMessage);
+  rpc Ttl(KeyRequest) returns (TtlResponse);
+  rpc Del(KeyRequest) returns (ResponseMessage);
+
+  // Extended Atomic Operations
+  rpc Incr(IncrRequest) returns (ValueResponse);
+  rpc Decr(DecrRequest) returns (ValueResponse);
+  rpc Append(AppendRequest) returns (ValueResponse);
+
+  // Key Pattern Matching
+  rpc Keys(PatternRequest) returns (KeysResponse);
+
+  // Transaction Support
+  rpc Multi(MultiRequest) returns (ResponseMessage);
+  rpc Exec(ExecRequest) returns (ResponseMessage);
+
+  // Data Structures: Lists
+  rpc LPush(ListPushRequest) returns (ResponseMessage);
+  rpc LPop(ListPopRequest) returns (ValueResponse);
+
+  // Data Structures: Sets
+  rpc SAdd(SetAddRequest) returns (ResponseMessage);
+  rpc SMembers(SetMembersRequest) returns (SetMembersResponse);
+
+  // Data Structures: Hashes
+  rpc HSet(HashSetRequest) returns (ResponseMessage);
+  rpc HGet(HashGetRequest) returns (ValueResponse);
+
+  // Enhanced Pub/Sub
+  rpc Publish(PublishRequest) returns (ResponseMessage);
+  rpc Subscribe(SubscribeRequest) returns (stream PubSubMessage);
+}
+
+// Basic Query messages
+message Query {
+  string query = 1;
+  string parameters = 2;
+}
+
+message QueryRequest {
+  Query query = 1;
+}
+
+message QueryResponse {
+  string result = 1;
+}
+
+// Basic Key-Value messages
+message SetRequest {
+  string key = 1;
+  string value = 2;
+  int32 ttl = 3; // TTL in seconds; 0 means no expiration.
+}
+
+message KeyRequest {
+  string key = 1;
+}
+
+message ValueResponse {
+  string value = 1;
+}
+
+message ExpireRequest {
+  string key = 1;
+  int32 ttl = 2;
+}
+
+message TtlResponse {
+  int64 ttl = 1;
+}
+
+message ResponseMessage {
+  string status = 1;
+  string message = 2;
+}
+
+// Extended Atomic Operations
+message IncrRequest {
+  string key = 1;
+  int32 amount = 2; // Defaults to 1 if not specified.
+}
+
+message DecrRequest {
+  string key = 1;
+  int32 amount = 2; // Defaults to 1 if not specified.
+}
+
+message AppendRequest {
+  string key = 1;
+  string value = 2;
+}
+
+// Key Pattern Matching
+message PatternRequest {
+  string pattern = 1;
+}
+
+message KeysResponse {
+  repeated string keys = 1;
+}
+
+// Transaction Support
+message MultiRequest {
+  repeated string commands = 1;
+}
+
+message ExecRequest {
+  // You may add fields if needed
+}
+
+// Data Structures: Lists
+message ListPushRequest {
+  string key = 1;
+  string value = 2;
+}
+
+message ListPopRequest {
+  string key = 1;
+}
+
+// Data Structures: Sets
+message SetAddRequest {
+  string key = 1;
+  string member = 2;
+}
+
+message SetMembersRequest {
+  string key = 1;
+}
+
+message SetMembersResponse {
+  repeated string members = 1;
+}
+
+// Data Structures: Hashes
+message HashSetRequest {
+  string key = 1;
+  string field = 2;
+  string value = 3;
+}
+
+message HashGetRequest {
+  string key = 1;
+  string field = 2;
+}
+
+// Enhanced Pub/Sub
+message PublishRequest {
+  string channel = 1;
+  string message = 2;
+}
+
+message SubscribeRequest {
+  repeated string channels = 1;
+  string pattern = 2; // Optional pattern for wildcard subscriptions.
+}
+
+message PubSubMessage {
+  string channel = 1;
+  string message = 2;
+}

@@ -1,0 +1,29 @@
+cd ~/code/rust/rediodb-v0.0.3  # Direct navigation to the project
+cargo clean                  # Clean the build directory
+export RUSTFLAGS="-C linker=gcc" # Set linker flags (if needed)
+cargo build                  # Build the project
+find . -print                 # List all files and directories in the project
+rm -rf target                # Remove the target directory forcefully
+find . -print                 # List all files and directories again
+code .                       # Open the project in VS Code
+cargo build                  # Build the project again
+cargo test                   # Run the tests
+
+
+
+grpcurl -plaintext -proto proto/rediodb.proto -import-path proto -d '{"key": "testKey", "value": "testValue", "ttl": 60}' localhost:50051 rediodb.Rediodb/Set
+
+grpcurl -plaintext -proto proto/rediodb.proto -import-path proto -d '{"key": "testKey"}' localhost:50051 rediodb.Rediodb/Get
+
+
+CLI
+------
+
+cargo run --bin rediodb-cli -- --help
+
+
+cargo run --bin rediodb-cli -- set myKey myValue 120
+
+
+
+
