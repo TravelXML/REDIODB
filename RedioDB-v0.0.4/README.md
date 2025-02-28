@@ -1,7 +1,3 @@
-Below is a complete README file for Redio DB that incorporates your additional details. You can adjust any sections as needed:
-
----
-
 # Redio DB
 
 **Redio DB** is a lightweight, high-performance distributed database designed for real-time data operations and pub/sub messaging. It provides both a modern gRPC API and a Redis‑like CLI for non‑interactive and interactive usage.
