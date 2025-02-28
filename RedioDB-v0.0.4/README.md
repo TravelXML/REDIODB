@@ -127,13 +127,13 @@ Redio DB uses both environment variables and Cargo configuration files for runti
 
 ### Environment Variables
 
-- **EDGEDB_ADDRESS:**  
+- **REDIO_ADDRESS:**  
   Specifies the address of the gRPC server. The default is `http://127.0.0.1:50051`.
 
 Set it in your shell:
 
 ```bash
-export EDGEDB_ADDRESS="http://127.0.0.1:50051"
+export REDIO_ADDRESS="http://127.0.0.1:50051"
 ```
 
 ### Cargo Linker Settings
@@ -157,14 +157,7 @@ If you need to change the linker (for example, to use gcc instead of lld), creat
    linker = "gcc"
    ```
 
-3. Clean and rebuild the project:
 
-   ```bash
-   cargo clean
-   cargo build
-   ```
-
----
 
 ## Usage
 
