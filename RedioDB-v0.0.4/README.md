@@ -5,7 +5,7 @@
 [![Build Status](https://img.shields.io/travis/TravelXML/rediodb.svg)](https://travis-ci.org/TravelXML/rediodb)  
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
----
+
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@
 - [Contributing](#contributing)
 - [License](#license)
 
----
+
 
 ## Features
 
@@ -72,7 +72,7 @@
 
 - All operations are exposed via a modern gRPC interface using protocol buffers.
 
----
+
 
 ## Architecture
 
@@ -87,7 +87,7 @@ Redio DB employs a distributed architecture to ensure high availability and real
 - **Consensus & Replication:**  
   Implements built-in consensus algorithms to support clustering and replication.
 
----
+
 
 ## Installation
 
@@ -115,7 +115,7 @@ cargo build --release
 
 > **Note:** If you encounter linker issues, verify your configuration as described in the [Configuration](#configuration) section below.
 
----
+
 
 ## Configuration
 
@@ -307,7 +307,7 @@ If your Redio server is running (default port: 50051) and you have the proto def
 
 > **Note:** The subscribe endpoint is a streaming call and will remain active until interrupted (Ctrl+C).
 
----
+
 
 ## Development
 
@@ -331,19 +331,19 @@ To contribute or modify Redio DB:
 
 Please adhere to the existing coding standards and include appropriate documentation with your changes.
 
----
+
 
 ## Contributing
 
 Contributions are welcome! Please review the [CONTRIBUTING](CONTRIBUTING.md) guidelines for details on our code of conduct and the process for submitting pull requests.
 
----
+
 
 ## License
 
 This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
 
----
+
 
 By following these instructions, you can run Redio DB in both non‑interactive and interactive modes, test its endpoints via grpcurl, and extend or contribute to the project. Happy coding!
 
